@@ -1,0 +1,33 @@
+# Ignore the dataset directories (images and text files)
+Flickr8k_text/
+Flickr8k_Dataset/
+
+# Ignore model weights and pickle files
+*.h5
+*.weights.h5
+*.pkl
+
+# Ignore virtual environment directories
+venv/
+.venv/
+
+# Ignore Python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore IDE-specific configuration files (e.g., VS Code, PyCharm)
+.idea/
+.vscode/
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+
+# Ignore large data directories or other non-essential files
+saved_features/
+saved_models/
+
+# Ignore any OS-specific files
+.DS_Store
+Thumbs.db
