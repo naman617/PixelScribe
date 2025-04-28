@@ -39,14 +39,14 @@ This project uses an Encoder-Decoder architecture:
 graph TD
     A[Input Image] --> B[CNN Encoder / InceptionV3]
     B --> C[Image Feature Vector 2048d]
-    C[Some Process] --> F[Dense Layer]
+    C[Image Features 2048d] --> F[Dense Layer]
 
     H[Input Sequence: 'startseq' + words] --> I[Embedding Layer / GloVe]
     I --> J[Word Embeddings - 200d]
     J --> K[LSTM Decoder - 256 units]
     K --> L[Text Features - 256d]
 
-    G[Some Process] --> M[Merge Add]
+    G[Dense Layer 256d] --> M[Merge Add]
     L --> M
 
     M --> N[Dense Layer / ReLU]
