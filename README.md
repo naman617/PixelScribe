@@ -96,7 +96,7 @@ graph TD
 ```bash
 git clone [https://github.com/](https://github.com/)[Your_GitHub_Username]/PixelScribe.git
 cd PixelScribe
-
+```
 3. Install Dependencies:
 Bash
 pip install -r requirements.txt
@@ -168,7 +168,7 @@ The model was trained for up to 50 epochs with early stopping monitoring validat
 
 Example 1: Success Case
 Image: `317488612_70ac35493b.jpg`
-  ![Dog in Snow](image_samples/317488612_70ac35493b.jpg)
+  ![Dog in Snow](/image_samples/317488612_70ac35493b.jpg)
 
 
 Generated: dog is running through the snow
@@ -185,7 +185,7 @@ Analysis: The model accurately captures the main subject and setting, producing 
 
 Example 2: Partial Success / Detail Error
 Image: `260828892_7925d27865.jpg`
-    ![Beach Scene](image_samples/260828892_7925d27865.jpg)
+    ![Beach Scene](/image_samples/260828892_7925d27865.jpg)
 
 Generated: the three girls are enjoying the ocean at the beach
 Reference: lone person walking in the distance on long beach
@@ -201,7 +201,7 @@ Analysis: While correctly identifying the beach setting (high BLEU-1), the model
 
 Example 3: Generalization Failure
 Image: `370713359_7560808550.jpg`
-    ![Mexican restaurant Scene](image_samples/370713359_7560808550.jpg)
+    ![Mexican restaurant Scene](/image_samples/370713359_7560808550.jpg)
 
 Generated: woman in black shirt is standing outside of shop
 Reference: an empty seat at mexican themed restaurant
