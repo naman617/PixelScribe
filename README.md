@@ -162,7 +162,7 @@ python src/evaluate.py \
     --image_dir ./data/Flicker8k_Dataset/ \
     --num_examples 5 \
     --output_file ./evaluation_examples.txt
-Results & Evaluation
+## Results & Evaluation
 The model was trained for up to 50 epochs with early stopping monitoring validation loss (best val_loss achieved: ~2.37). Qualitative evaluation and example-based sentence-BLEU scores were used to assess performance.
 
 
@@ -214,13 +214,14 @@ Scores: BLEU-1=0.111, BLEU-2=0.037, BLEU-3=0.028, BLEU-4=0.024
 Analysis: The model completely misinterprets the scene, hallucinating unrelated subjects and objects. The extremely low BLEU scores confirm the lack of relevance. This likely stems from the image content differing significantly from typical Flickr8k scenes or limitations in the baseline model's feature interpretation.
 Overall: The implemented baseline model demonstrates the feasibility of the CNN-LSTM approach for image captioning. It successfully generates grammatically plausible captions and performs well on common scenes found in the training data (e.g., dogs in snow). However, qualitative analysis and BLEU scores on specific examples reveal limitations in handling fine-grained details, accurate object counting, and generalization to less common or complex scenes. The Greedy Search decoding contributes to these limitations.
 
-Limitations & Future Work
+## Limitations & Future Work
 Dataset: Flickr8k's limited size and scope restrict the model's ability to generalize. Training on larger datasets (MS COCO, Conceptual Captions) would be beneficial.
 Baseline Model: This CNN+LSTM architecture is standard but basic. Implementing Attention mechanisms would allow the decoder to focus on relevant image regions, likely improving accuracy and relevance significantly.
 Decoding Strategy: Greedy Search was used for evaluation. Implementing and comparing with Beam Search could produce more fluent and globally optimal captions.
 Evaluation Metrics: The evaluation relied on qualitative analysis and example sentence_bleu. Implementing the full COCO evaluation suite (CIDEr, SPICE, METEOR, ROUGE) would allow for standardized benchmarking.
 Fine-Tuning: Exploring fine-tuning of GloVe embeddings or upper layers of the InceptionV3 encoder could potentially yield performance gains.
-Contact
+
+## Contact
 Naman Nandana
 Email: nnandan2@asu.edu
 LinkedIn: https://www.linkedin.com/feed/
