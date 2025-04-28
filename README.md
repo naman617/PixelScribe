@@ -98,9 +98,10 @@ git clone [https://github.com/](https://github.com/)[Your_GitHub_Username]/Pixel
 cd PixelScribe
 ```
 3. Install Dependencies:
-Bash
+```bash
 pip install -r requirements.txt
-# Download necessary NLTK data for evaluation script
+```
+4. Download necessary NLTK data for evaluation script
 ```bash
 python -m nltk.downloader punkt
 ```
