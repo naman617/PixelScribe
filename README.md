@@ -37,26 +37,25 @@ This project uses an Encoder-Decoder architecture:
 
 ```mermaid
 graph TD
-    A[Input Image] --> B(CNN Encoder / InceptionV3);
-    B --> C[Image Feature Vector (2048d)];
-    C --> F(Dense Layer);
-    F --> G[Processed Image Features (256d)];
+    A[Input Image] --> B[CNN Encoder / InceptionV3]
+    B --> C[Image Feature Vector 2048d]
+    C[Some Process] --> F[Dense Layer]
 
-    H[Input Sequence ('startseq' + words)] --> I(Embedding Layer / GloVe);
-    I --> J[Word Embeddings (200d)];
-    J --> K(LSTM Decoder / 256 units);
-    K --> L[Text Features (256d)];
+    H[Input Sequence: 'startseq' + words] --> I[Embedding Layer / GloVe]
+    I --> J[Word Embeddings - 200d]
+    J --> K[LSTM Decoder - 256 units]
+    K --> L[Text Features - 256d]
 
-    G --> M{Merge (Add)};
-    L --> M;
+    G[Some Process] --> M[Merge Add]
+    L --> M
 
-    M --> N(Dense Layer / ReLU);
-    N --> O(Dense Layer / Softmax);
-    O --> P[Output Probabilities (Vocab Size)];
-    P --> Q(Select Next Word / Argmax);
-    Q --> R{Append Word};
-    R --> H;
-    Q --> S[Output Caption ('endseq')];
+    M --> N[Dense Layer / ReLU]
+    N --> O[Dense Layer / Softmax]
+    O --> P[Output Probabilities - Vocab Size]
+    P --> Q[Select Next Word / Argmax]
+    Q --> R[Append Word]
+    R --> H
+    Q --> S[Output Caption: 'endseq']
 
     subgraph Image Processing
         B
