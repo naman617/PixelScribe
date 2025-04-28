@@ -101,7 +101,9 @@ cd PixelScribe
 Bash
 pip install -r requirements.txt
 # Download necessary NLTK data for evaluation script
+```python
 python -m nltk.downloader punkt
+```
 
 4. Download Data & Embeddings:
 Flickr8k Dataset: Download the dataset images and required annotation files. You can often find this dataset via Kaggle or academic sources.
@@ -204,10 +206,14 @@ Image: `370713359_7560808550.jpg`
     ![Mexican restaurant Scene](/image_samples/370713359_7560808550.jpg)
 
 Generated: woman in black shirt is standing outside of shop
+
 Reference: an empty seat at mexican themed restaurant
+
 Scores: BLEU-1=0.111, BLEU-2=0.037, BLEU-3=0.028, BLEU-4=0.024
+
 Analysis: The model completely misinterprets the scene, hallucinating unrelated subjects and objects. The extremely low BLEU scores confirm the lack of relevance. This likely stems from the image content differing significantly from typical Flickr8k scenes or limitations in the baseline model's feature interpretation.
 Overall: The implemented baseline model demonstrates the feasibility of the CNN-LSTM approach for image captioning. It successfully generates grammatically plausible captions and performs well on common scenes found in the training data (e.g., dogs in snow). However, qualitative analysis and BLEU scores on specific examples reveal limitations in handling fine-grained details, accurate object counting, and generalization to less common or complex scenes. The Greedy Search decoding contributes to these limitations.
+
 Limitations & Future Work
 Dataset: Flickr8k's limited size and scope restrict the model's ability to generalize. Training on larger datasets (MS COCO, Conceptual Captions) would be beneficial.
 Baseline Model: This CNN+LSTM architecture is standard but basic. Implementing Attention mechanisms would allow the decoder to focus on relevant image regions, likely improving accuracy and relevance significantly.
