@@ -101,7 +101,7 @@ cd PixelScribe
 Bash
 pip install -r requirements.txt
 # Download necessary NLTK data for evaluation script
-```python
+```bash
 python -m nltk.downloader punkt
 ```
 
@@ -128,7 +128,7 @@ Usage
 (Examples assume data is in ./data/, features in ./saved_features/, GloVe in ./glove/, and outputs go to ./training_output/. Adjust paths in commands as needed.)
 1. Training:
 Train a new model or fine-tune. The script saves the best weights based on validation loss, vocabulary mappings, and max length to the output directory.
- Bash
+```bash
 python src/train.py \
     --token_path ./data/Flickr8k.token.txt \
     --train_ids_path ./data/Flickr_8k.trainImages.txt \
@@ -140,17 +140,19 @@ python src/train.py \
     --epochs 50 \
     --batch_size 3 \
     --patience 5
+```    
 2. Prediction (Single Image):
 Generate a caption for a specific image using the trained weights and saved vocabulary.
- Bash
+```bash
 python src/predict.py \
     --image_path /path/to/your/image.jpg \
     --weights_path ./training_output/best_model.weights.h5 \
     --vocab_path ./training_output/vocab_mappings.pkl \
     --max_length_path ./training_output/max_length.pkl
+```
 3. Evaluation (Examples):
 Generate captions and calculate sentence-BLEU scores for a few random test examples. Requires original image directory for display.
- Bash
+```bash
 python src/evaluate.py \
     --weights_path ./training_output/best_model.weights.h5 \
     --features_path ./saved_features/encoded_test_images.pkl \
@@ -162,6 +164,7 @@ python src/evaluate.py \
     --image_dir ./data/Flicker8k_Dataset/ \
     --num_examples 5 \
     --output_file ./evaluation_examples.txt
+```
 ## Results & Evaluation
 The model was trained for up to 50 epochs with early stopping monitoring validation loss (best val_loss achieved: ~2.37). Qualitative evaluation and example-based sentence-BLEU scores were used to assess performance.
 
@@ -216,15 +219,22 @@ Overall: The implemented baseline model demonstrates the feasibility of the CNN-
 
 ## Limitations & Future Work
 Dataset: Flickr8k's limited size and scope restrict the model's ability to generalize. Training on larger datasets (MS COCO, Conceptual Captions) would be beneficial.
+
 Baseline Model: This CNN+LSTM architecture is standard but basic. Implementing Attention mechanisms would allow the decoder to focus on relevant image regions, likely improving accuracy and relevance significantly.
+
 Decoding Strategy: Greedy Search was used for evaluation. Implementing and comparing with Beam Search could produce more fluent and globally optimal captions.
+
 Evaluation Metrics: The evaluation relied on qualitative analysis and example sentence_bleu. Implementing the full COCO evaluation suite (CIDEr, SPICE, METEOR, ROUGE) would allow for standardized benchmarking.
+
 Fine-Tuning: Exploring fine-tuning of GloVe embeddings or upper layers of the InceptionV3 encoder could potentially yield performance gains.
 
 ## Contact
 Naman Nandana
+
 Email: nnandan2@asu.edu
+
 LinkedIn: https://www.linkedin.com/feed/
+
 GitHub: https://github.com/naman617
 
 
