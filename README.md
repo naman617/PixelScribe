@@ -106,7 +106,7 @@ pip install -r requirements.txt
 python -m nltk.downloader punkt
 ```
 
-4. Download Data & Embeddings:
+5. Download Data & Embeddings:
 Flickr8k Dataset: Download the dataset images and required annotation files. You can often find this dataset via Kaggle or academic sources.
 Create a data/ directory in the project root.
 Place the images inside data/Flicker8k_Dataset/.
@@ -114,7 +114,7 @@ Place annotation files (Flickr8k.token.txt, descriptions.txt, Flickr_8k.trainIma
 GloVe Embeddings: Download the glove.6B.200d.txt file.
 Create a glove/ directory in the project root.
 Place the .txt file inside glove/. (Link: https://nlp.stanford.edu/projects/glove/)
-5. Generate Image Features OR Download Pre-computed:
+6. Generate Image Features OR Download Pre-computed:
 Image features must be extracted using InceptionV3. This is time-consuming.
 Option A (Generate): (You might want to create a simple src/run_feature_extraction.py script for this)
 Run the feature extraction process for train and test image sets defined in the data/ text files. This will create .pkl files.
@@ -125,7 +125,7 @@ encoded_train_images.pkl: [https://drive.google.com/file/d/1w0Wwlv1_Ovy5z-MDVTBo
 encoded_test_images.pkl: [https://drive.google.com/file/d/1d8o_G9kflq1lr40-t71ZDqHZSg7tpJ9u/view?usp=drive_link]
 Create a saved_features/ directory in the project root.
 Place the downloaded .pkl files inside saved_features/.
-Usage
+## Usage
 (Examples assume data is in ./data/, features in ./saved_features/, GloVe in ./glove/, and outputs go to ./training_output/. Adjust paths in commands as needed.)
 1. Training:
 Train a new model or fine-tune. The script saves the best weights based on validation loss, vocabulary mappings, and max length to the output directory.
